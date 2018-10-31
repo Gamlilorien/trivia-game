@@ -1,8 +1,42 @@
 @font-face {
     font-family: 'magic_school_oneregular';
-    src: url('magicschoolone-webfont.woff2') format('woff2'),
-         url('magicschoolone-webfont.woff') format('woff');
+    src: url('../fonts/magicschoolone-webfont.woff2') format('woff2'),
+         url('../fonts/magicschoolone-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
 
+h1, h2, h3 {
+    font-family: 'magic_school_oneregular';
+    text-align: center;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+body {
+    background-image: url("../images/fallingstar_background.jpg");
+}
+
+.centerDiv {
+    display: block;
+    width: 60%;
+    margin: auto;
+}
+
+@media only screen and (max-width: 564px) {
+    h1 {
+        font-size: 4rem;
+    }
 }
