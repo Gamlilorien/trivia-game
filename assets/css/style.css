@@ -1,7 +1,8 @@
 @font-face {
     font-family: 'magic_school_oneregular';
     src: url('../fonts/magicschoolone-webfont.woff2') format('woff2'),
-         url('../fonts/magicschoolone-webfont.woff') format('woff');
+         url('../fonts/magicschoolone-webfont.woff') format('woff'),
+         url('../fonts/magicschoolone-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -9,20 +10,42 @@
 h1, h2, h3 {
     font-family: 'magic_school_oneregular';
     text-align: center;
-    margin-block-start: 0;
-    margin-block-end: 0;
+    color: black;
 }
 
 h1 {
-    font-size: 6rem;
+    font-size: 8rem;
 }
 
 h2 {
-    font-size: 4rem;
+    font-size: 6rem;
 }
 
 h3 {
     font-size: 3rem;
+}
+
+p, button {
+    font-family: 'Cormorant Upright', serif;
+    font-size: 2rem;
+}
+
+button {
+    border: 1px solid rgb(73, 72, 72);
+    border-radius: 12px;
+    box-shadow: 4px 2px 6px 0 rgb(73, 72, 72);
+    margin: 1rem;
+}
+
+.centerDiv, .subDiv, p {
+    margin-top: 1rem;
+}
+
+.footprints1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
 }
 
 body {
@@ -31,12 +54,32 @@ body {
 
 .centerDiv {
     display: block;
-    width: 60%;
+    width: 80%;
     margin: auto;
 }
 
-@media only screen and (max-width: 564px) {
+.subDiv {
+    background-image: url("../images/parchment.jpg");
+    border-radius: 12px;
+    border: 1px solid rgb(73, 72, 72);
+    box-shadow: 5px 10px 8px 10px rgb(73, 72, 72);
+    padding: 16px;
+    margin-bottom: 2rem;
+}
+
+.parchmentCard {
+    width: 90%;
+    height: 90%;
+    margin: auto;
+}
+
+.myImage {
+    width: 100%;
+    vertical-align: middle;
+}
+
+@media only screen and (max-width: 732px) {
     h1 {
-        font-size: 4rem;
+        font-size: 6rem;
     }
 }

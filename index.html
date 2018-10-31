@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="assets/javascript/app.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Upright" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
 
 
@@ -12,11 +15,46 @@
 </head>
 <body>
 
+    <img class="footprints1" src="assets/images/footprints-1.png" alt="curved footprints">
+    
     <!-- Main Content -->
     <div class="centerDiv">
 
+        <!-- Titles -->
         <h1>Harry Potter</h1>
         <h3>Trivia Game</h3>
+
+        <!-- Card area for question and answers -->
+        <div class="container subDiv">
+
+            <div class="col-12 parchmentCard">
+                <div class="row">
+                    <p>
+                        Q). <span id="question">Who was the Headmaster of Hogwarts when the Chamber of Secrets was first opened?
+                            </span>
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <button class="answerButtons">a). <span id="answerA">Professor Dippet</span></button>
+                        <br>
+                        <button class="answerButtons">b). <span id="answerB">Professor Dumbledore</span></button>
+                        <br>
+                        <button class="answerButtons">c). <span id="answerC">Professor Nicholas Flamel</span></button>
+                        <br>
+                        <button class="answerButtons">d). <span id="answerD">Professor McGonagall</span></button>
+                    </div>
+
+                    <div class="col-6">
+                        <p>
+                            <span id="answer"></span>
+                        </p>
+                        <img class="myImage" src="https://media.giphy.com/media/1CtJUjxxgA5Pi/giphy.gif">
+                    </div>
+                </div>
+            </div>
+        </div>
             
 
     </div>
