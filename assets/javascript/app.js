@@ -47,6 +47,7 @@ var roundTimer = {
     stop: function () {
         clearInterval(intervalId);
         timerRunning = false;
+        roundIsActive= false;
     },
 
     timeConverter: function(t) {
@@ -74,13 +75,6 @@ var roundTimer = {
 };
 
 
-// run the roundTimer
-// window.onload = function() {
-//     $("#timer").on("click", roundTimer.start);
-//     $(".answerButtons").on("click", roundTimer.stop);
-// }
-
-window.onload = roundTimer.start;
 
 
 
@@ -90,12 +84,7 @@ window.onload = roundTimer.start;
 
 
 
-
-
-
-
-
-var roundCount;
+var round;
 
 var reviewTimer;
 
@@ -150,12 +139,41 @@ var incomplete;
 
 // ***** Functions
 
-    // newGame
+// newGame
+function newGame() {
+    correct =0;
+    incorrect =0;
+    incomplete =0;
 
-    // setUpRound
+    round =1;
 
-    // roundScore
+    // set HTML elements
+    setUpRound(round);
+    
+    roundIsActive = true;
+};
 
+// setUpRound
+function setUpRound(round) {
+    $("#question").text(triviaObjects[round].question);
+    $("#answerA").text(triviaObjects[round].choices[0]);
+    $("#answerB").text(triviaObjects[round].choices[1]);
+    $("#answerC").text(triviaObjects[round].choices[2]);
+    $("#answerD").text(triviaObjects[round].choices[3]);
+    // replace other image url with this one.
+    // CAN'T GET THIS WORKING!!!
+    var newImg = $("<img>")
+    console.log(newImg);
+          newImg.attr("src", triviaObjects[round].giff);
+          console.log(triviaObjects[round].giff)
+          console.log(newImg);
+    $("#myImg").text("testing?")
+};
+
+// roundScore
+function roundScore() {
+
+};
 
 
 // ***** Main code
@@ -163,6 +181,27 @@ var incomplete;
 
 // We Need the Game Setup
     // This should include a splash screen and a start/play button
+    window.onload = function() {
+        newGame();
+
+        // on click events
+        $("#answerA").click(function(){
+            console.log("answerA");
+        });
+        $("#answerB").click(function(){
+            console.log("answerB");
+        });
+        $("#answerC").click(function(){
+            console.log("answerC");
+        });
+        $("#answerD").click(function(){
+            console.log("answerD");
+        });
+        
+        // start roundTimer
+        // we need () after the start or it won't run automatically!
+        roundTimer.start();
+    }
 
     // Then load the game card
 

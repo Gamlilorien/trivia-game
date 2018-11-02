@@ -59,6 +59,7 @@ body {
     box-shadow: 5px 10px 8px 10px rgb(73, 72, 72);
     padding: 16px;
     margin-bottom: 2rem;
+    margin: auto;
 }
 
 .myImage {
