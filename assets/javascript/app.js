@@ -176,6 +176,15 @@ function endReviewTimer() {
     // check to see if game is over
     if (round == maxRounds) {
         console.log("end of game")
+        // End of game code goes here...
+        // $(".question").empty();
+        // $(".toBeCleared").empty();
+        // // set new title
+        // $(".question").html("<h3>Thanks for playing!</h3>");
+        // $(".toBeCleared").html("<h4>Correct: </h4>");
+        alert("Correct: " +correct + " Incorrect: " +incorrect + " Incomplete: " +incomplete)
+
+
     } else {
     newRound();
     roundIsActive = true;
@@ -237,14 +246,18 @@ function roundScore(buttonId) {
         // If answer is correct, tally as 'correct'
         if (theirAnswer === correctAnswer) {
             correct++;
+            $("#myImg").attr("src", "assets/images/correct.jpg").addClass("myImg");
 
         // else if no button is pressed (ie timer runs out), tally as 'incomplete'
         } else if (buttonId === undefined) {
             incomplete++;
+            $("#myImg").attr("src", "assets/images/timesUp.jpg").addClass("myImg");
 
         // otherwise tally as 'incorrect'
         } else {
             incorrect++;
+            $("#myImg").attr("src", "assets/images/incorrect.jpg").addClass("myImg");
+
         };
 
         console.log("Correct:" + correct +", Incorrect: " +incorrect +", Incomplete: " +incomplete);
@@ -287,21 +300,3 @@ function roundScore(buttonId) {
 
     // Then load the game card
 
-    // Then setupRound with question details like: Question, button text, giff.
-// **** roundIsActive=TRUE
-        // start 30 second timer
-
-        // If user clicks on a button
-            // --> set roundIsActive=FALSE
-
-        //If roundTimer reaches zero
-            // set roundIsActive to FALSE
-
-// **** roundIsActive=FALSE
-            // End roundTimer
-            // Start reviewTimer
-            // Evaluate roundScore
-            // Display correct answer
-
-// **** reviewTimer==0
-        // setupRound
