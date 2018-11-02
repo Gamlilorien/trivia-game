@@ -20,10 +20,10 @@ var roundTimer = {
     countDown: function() {
         // we need a way for the timer to stop if it reaches 0
         if (roundTimer.time == 0) {
-            roundTimer.stop;
+            // roundTimer.stop;
             // then we want to trigger the next round
             roundScore();
-
+            reviewTimer();
 
             // otherwise keep counding down
         } else {      
@@ -194,12 +194,17 @@ function setUpRound(round) {
     $(".answerButtons").removeClass("strikeThrough");
     // replace other image url with this one.
     // CAN'T GET THIS WORKING!!!
-    var newImg = $("<img>")
-    console.log(newImg);
-          newImg.attr("src", triviaObjects[round].giff);
-          console.log(triviaObjects[round].giff)
-          console.log(newImg);
-    $("#myImg").text("testing?")
+    // var newImg = $("<img>")
+    // console.log(newImg);
+    //       newImg.attr("src", triviaObjects[round].giff);
+    //       console.log(triviaObjects[round].giff)
+    //       console.log(newImg);
+    // $("#myImg").appendTo("<p>testing?</p>")
+    // $("#myImg").html = winImage(triviaObjects[round].giff);
+    var newImg = triviaObjects[round].giff;
+    // ?????
+    $("#myImg").attr("src", newImg).addClass("myImg");    
+
 };
 
 // need a function for new rounds beyond the first

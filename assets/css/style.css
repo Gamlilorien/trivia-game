@@ -59,14 +59,14 @@ body {
     box-shadow: 5px 10px 8px 10px rgb(73, 72, 72);
     padding: 16px;
     margin: auto;
+    width:90%;
     margin-bottom: 2rem;
 }
 
-.popUp {
-    z-index: 3;
+.mainSection {
 }
 
-.myImage {
+.myImg {
     width: 100%;
     vertical-align: middle;
 }
