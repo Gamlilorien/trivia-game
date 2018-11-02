@@ -8,13 +8,13 @@ var timerRunning = false;
 // roundTimer object
 var roundTimer = {
 
-    time: 10,
+    time: 20,
 
     reset: function() {
-        roundTimer.time = 30;
+        roundTimer.time = 20;
         clearInterval(intervalId);
         // Reset HTML element
-        $("#timer").text("00:00");
+        $("#timer").text("00:20");
     },
 
     countDown: function() {
@@ -126,10 +126,12 @@ var triviaObjects = [
         "choices" : ["Seeker", "Beater", "Chaser", "Keeper"],
         "answer" : "Seeker",
         "giff" : "https://media.giphy.com/media/NTMzggotBZdkI/giphy.gif"
-    }
+    },
 
 ];
 
+// so we know when to trigger the end of the game.
+var maxRounds = triviaObjects.length -1;
     
 
 var roundIsActive = false;
@@ -161,7 +163,7 @@ function newGame() {
 function reviewTimer() {
     // if (!reviewTimerRunning) {
         console.log("start review timer...")
-        intervalId2 = setInterval(endReviewTimer, 4000);
+        intervalId2 = setInterval(endReviewTimer, 3000);
         reviewTimerRunning = true;
     // }
 };
@@ -171,8 +173,13 @@ function endReviewTimer() {
     reviewTimerRunning = false;
     // now call newRound function
     console.log("end review timer")
+    // check to see if game is over
+    if (round == maxRounds) {
+        console.log("end of game")
+    } else {
     newRound();
     roundIsActive = true;
+    };
 };
 
 // setUpRound
