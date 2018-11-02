@@ -2,6 +2,7 @@
 
 // intervalId so we can end the roundTimer
 var intervalId;
+var intervalId2;
 var timerRunning = false;
 
 // roundTimer object
@@ -88,7 +89,7 @@ var roundTimer = {
 
 var round;
 
-var reviewTimer;
+var reviewTimerRunning = false;
 
 // Thinking of doing an object for each question, inside of an object simply named triviaObjects
 var triviaObjects = [
@@ -157,13 +158,33 @@ function newGame() {
     roundIsActive = true;
 };
 
+function reviewTimer() {
+    // if (!reviewTimerRunning) {
+        console.log("start review timer...")
+        intervalId2 = setInterval(endReviewTimer, 4000);
+        reviewTimerRunning = true;
+    // }
+};
+
+function endReviewTimer() {
+    clearInterval(intervalId2);
+    reviewTimerRunning = false;
+    // now call newRound function
+    console.log("end review timer")
+    newRound();
+    roundIsActive = true;
+};
+
 // setUpRound
 function setUpRound(round) {
     $("#question").text(triviaObjects[round].question);
-    $("#answerA").text(triviaObjects[round].choices[0]);
-    $("#answerB").text(triviaObjects[round].choices[1]);
-    $("#answerC").text(triviaObjects[round].choices[2]);
-    $("#answerD").text(triviaObjects[round].choices[3]);
+    $("#0").text(triviaObjects[round].choices[0]);
+    $("#1").text(triviaObjects[round].choices[1]);
+    $("#2").text(triviaObjects[round].choices[2]);
+    $("#3").text(triviaObjects[round].choices[3]);
+
+    // clear styling
+    $(".answerButtons").removeClass("strikeThrough");
     // replace other image url with this one.
     // CAN'T GET THIS WORKING!!!
     var newImg = $("<img>")
@@ -172,6 +193,15 @@ function setUpRound(round) {
           console.log(triviaObjects[round].giff)
           console.log(newImg);
     $("#myImg").text("testing?")
+};
+
+// need a function for new rounds beyond the first
+// needs a delay so players can see the results
+function newRound() {
+    round++;
+    setUpRound(round);
+    roundTimer.reset();
+    roundTimer.start();
 };
 
 // roundScore - triggered from clicking the answerButtons
@@ -228,8 +258,13 @@ function roundScore(buttonId) {
 
         // on click events
         $(".answerButtons").click(function(){
-            buttonId = this.id;
-            roundScore(buttonId);
+            if (roundIsActive == true) {
+                buttonId = this.id;
+                roundScore(buttonId);
+                
+                // new round
+                reviewTimer();
+            }
             
         });
         
