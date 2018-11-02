@@ -21,6 +21,8 @@ var roundTimer = {
         if (roundTimer.time == 0) {
             roundTimer.stop;
             // then we want to trigger the next round
+            roundScore();
+
 
             // otherwise keep counding down
         } else {      
@@ -130,6 +132,8 @@ var triviaObjects = [
     
 
 var roundIsActive = false;
+var buttonId;
+var answerId;
 
 var correct;
 var incorrect;
@@ -145,7 +149,7 @@ function newGame() {
     incorrect =0;
     incomplete =0;
 
-    round =1;
+    round =0;
 
     // set HTML elements
     setUpRound(round);
@@ -170,8 +174,45 @@ function setUpRound(round) {
     $("#myImg").text("testing?")
 };
 
-// roundScore
-function roundScore() {
+// roundScore - triggered from clicking the answerButtons
+// purpose: to end the current round, determine the score
+function roundScore(buttonId) {
+    
+    // only trigger if roundIsActive... you need TWO equal signs...
+    if (roundIsActive == true) {
+        // stop roundTimer - this will also end the ROUND so they can't score multiple times
+        roundTimer.stop();
+
+        var correctAnswer = triviaObjects[round].answer;
+        $(triviaObjects[round].choices).each(function(i) {
+            if (correctAnswer === triviaObjects[round].choices[i]) {
+                answerId = i;
+            };
+        });
+
+        var theirAnswer = triviaObjects[round].choices[buttonId];
+
+        // If answer is correct, tally as 'correct'
+        if (theirAnswer === correctAnswer) {
+            correct++;
+
+        // else if no button is pressed (ie timer runs out), tally as 'incomplete'
+        } else if (buttonId === undefined) {
+            incomplete++;
+
+        // otherwise tally as 'incorrect'
+        } else {
+            incorrect++;
+        };
+
+        console.log("Correct:" + correct +", Incorrect: " +incorrect +", Incomplete: " +incomplete);
+
+        // strike through all buttons then remove correct answer by id
+        $(".answerButtons").addClass("strikeThrough");
+        var correctButton = "#" +answerId;
+        $(correctButton).removeClass("strikeThrough")
+    }
+    
 
 };
 
@@ -181,21 +222,15 @@ function roundScore() {
 
 // We Need the Game Setup
     // This should include a splash screen and a start/play button
+    // On window load
     window.onload = function() {
         newGame();
 
         // on click events
-        $("#answerA").click(function(){
-            console.log("answerA");
-        });
-        $("#answerB").click(function(){
-            console.log("answerB");
-        });
-        $("#answerC").click(function(){
-            console.log("answerC");
-        });
-        $("#answerD").click(function(){
-            console.log("answerD");
+        $(".answerButtons").click(function(){
+            buttonId = this.id;
+            roundScore(buttonId);
+            
         });
         
         // start roundTimer

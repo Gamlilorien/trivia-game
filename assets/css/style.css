@@ -71,6 +71,11 @@ body {
     color: red;
 }
 
+.strikeThrough {
+    text-decoration: line-through;
+    color: red;
+}
+
 @media only screen and (max-width: 732px) {
     h1 {
         font-size: 6rem;
