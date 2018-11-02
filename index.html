@@ -18,42 +18,53 @@
     <img class="footprints1" src="assets/images/footprints-1.png" alt="curved footprints">
     
     <!-- Main Content -->
-    <div class="centerDiv">
+    <div class="container">
 
-        <!-- Titles -->
-        <h1>Harry Potter</h1>
-        <h3>Trivia Game</h3>
-
-        <!-- Card area for question and answers -->
-        <div class="container subDiv">
-
-            <div class="col-12 parchmentCard">
-                <div class="row">
-                    <p>
-                        Q). <span id="question">Who was the Headmaster of Hogwarts when the Chamber of Secrets was first opened?
-                            </span>
-                    </p>
-                </div>
-
-                <div class="row">
-                    <div class="col-6">
-                        <button class="answerButtons">a). <span id="answerA">Professor Dippet</span></button>
-                        <br>
-                        <button class="answerButtons">b). <span id="answerB">Professor Dumbledore</span></button>
-                        <br>
-                        <button class="answerButtons">c). <span id="answerC">Professor Nicholas Flamel</span></button>
-                        <br>
-                        <button class="answerButtons">d). <span id="answerD">Professor McGonagall</span></button>
-                    </div>
-
-                    <div class="col-6">
-                        <p>
-                            <span id="answer"></span>
-                        </p>
-                        <img class="myImage" src="https://media.giphy.com/media/1CtJUjxxgA5Pi/giphy.gif">
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-12">
+                <!-- Titles -->
+                <h1>Harry Potter</h1>
+                <h3>Trivia Game</h3>
             </div>
+
+            <!-- Card area for question and answers -->
+            <div class="subDiv">
+
+                <div class="col-12">
+                    <!-- Question Row, one column -->
+                    <div class="row">
+                        <p>
+                            Q). <span id="question">Who was the Headmaster of Hogwarts when the Chamber of Secrets was first opened?
+                                </span>
+                        </p>
+                    </div>
+
+                    <!--Buttons and Image Row; two columns -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <button class="answerButtons">a). <span id="answerA">Professor Dippet</span></button>
+                            <br>
+                            <button class="answerButtons">b). <span id="answerB">Professor Dumbledore</span></button>
+                            <br>
+                            <button class="answerButtons">c). <span id="answerC">Professor Nicholas Flamel</span></button>
+                            <br>
+                            <button class="answerButtons">d). <span id="answerD">Professor McGonagall</span></button>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <h2>
+                                <span id="timer">00:30</span>
+                            </h2>
+                            <img class="myImage" src="https://media.giphy.com/media/1CtJUjxxgA5Pi/giphy.gif">
+                        </div>
+                    </div>
+                
+                <!-- End of parchment card -->
+                </div>
+            <!-- End of subDiv -->
+            </div>
+
+        <!-- End of main row -->
         </div>
             
 

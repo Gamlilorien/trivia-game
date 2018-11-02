@@ -52,12 +52,6 @@ body {
     background-image: url("../images/fallingstar_background.jpg");
 }
 
-.centerDiv {
-    display: block;
-    width: 80%;
-    margin: auto;
-}
-
 .subDiv {
     background-image: url("../images/parchment.jpg");
     border-radius: 12px;
@@ -67,15 +61,13 @@ body {
     margin-bottom: 2rem;
 }
 
-.parchmentCard {
-    width: 90%;
-    height: 90%;
-    margin: auto;
-}
-
 .myImage {
     width: 100%;
     vertical-align: middle;
+}
+
+.timesUp {
+    color: red;
 }
 
 @media only screen and (max-width: 732px) {

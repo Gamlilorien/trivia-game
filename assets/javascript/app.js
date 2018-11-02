@@ -1,6 +1,100 @@
 // ***** Global variables and Objects
 
-var roundTimer;
+// intervalId so we can end the roundTimer
+var intervalId;
+var timerRunning = false;
+
+// roundTimer object
+var roundTimer = {
+
+    time: 10,
+
+    reset: function() {
+        roundTimer.time = 30;
+        clearInterval(intervalId);
+        // Reset HTML element
+        $("#timer").text("00:00");
+    },
+
+    countDown: function() {
+        // we need a way for the timer to stop if it reaches 0
+        if (roundTimer.time == 0) {
+            roundTimer.stop;
+            // then we want to trigger the next round
+
+            // otherwise keep counding down
+        } else {      
+            roundTimer.time--;
+            console.log(roundTimer.time);
+            // convert this two digit number in a timer display (ie 00:00)
+            var dr = roundTimer.timeConverter(roundTimer.time);
+            // display this converted time
+            $("#timer").html(dr);
+            // set red here, otherwise has a delay
+            if (roundTimer.time == 0) {
+                $("#timer").addClass("timesUp");
+            }
+        }
+    },
+
+    start: function() {
+        if (!timerRunning) {
+            intervalId = setInterval(roundTimer.countDown, 1000);
+            timerRunning = true;
+        }
+    },
+
+    stop: function () {
+        clearInterval(intervalId);
+        timerRunning = false;
+    },
+
+    timeConverter: function(t) {
+
+        //  Takes the current time in seconds and convert it to minutes and seconds (mm:ss).
+        var minutes = Math.floor(t / 60);
+        var seconds = t - (minutes * 60);
+    
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+    
+        if (minutes === 0) {
+          minutes = "00";
+        }
+    
+        else if (minutes < 10) {
+          minutes = "0" + minutes;
+        }
+    
+        return minutes + ":" + seconds;
+      }
+
+// End roundTimer object
+};
+
+
+// run the roundTimer
+// window.onload = function() {
+//     $("#timer").on("click", roundTimer.start);
+//     $(".answerButtons").on("click", roundTimer.stop);
+// }
+
+window.onload = roundTimer.start;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var roundCount;
 
 var reviewTimer;
@@ -62,6 +156,8 @@ var incomplete;
 
     // roundScore
 
+
+
 // ***** Main code
 
 
@@ -76,13 +172,12 @@ var incomplete;
 
         // If user clicks on a button
             // --> set roundIsActive=FALSE
-            // End roundTimer
 
         //If roundTimer reaches zero
             // set roundIsActive to FALSE
-            // End roundTimer
 
 // **** roundIsActive=FALSE
+            // End roundTimer
             // Start reviewTimer
             // Evaluate roundScore
             // Display correct answer
