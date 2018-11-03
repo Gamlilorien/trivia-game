@@ -177,12 +177,19 @@ function endReviewTimer() {
     if (round == maxRounds) {
         console.log("end of game")
         // End of game code goes here...
-        // $(".question").empty();
-        // $(".toBeCleared").empty();
-        // // set new title
-        // $(".question").html("<h3>Thanks for playing!</h3>");
-        // $(".toBeCleared").html("<h4>Correct: </h4>");
-        alert("Correct: " +correct + " Incorrect: " +incorrect + " Incomplete: " +incomplete)
+        $(".toBeCleared").empty();
+        // // set new title content
+        var t = $("<div>");
+        t.addClass("score");
+        t.append("<h3>Thanks for Playing!</h3>");
+        t.append("<br>");
+        t.append("<p>Correct: " + correct + "</p>");
+        t.append("<p>Incorrect: " + incorrect + "</p>");
+        t.append("<p>Unanswered: " + incomplete + "</p>");
+        
+        // now insert this new div back into the DOM
+        $(".toBeCleared").html(t);
+        // alert("Correct: " +correct + " Incorrect: " +incorrect + " Incomplete: " +incomplete)
 
 
     } else {
