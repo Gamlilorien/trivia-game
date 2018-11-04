@@ -2,15 +2,14 @@
 
 ![trivia-game](assets/images/hp-banner.png)
 
-* You'll create a trivia game that shows only one question until the player answers it or their time runs out.
+* In this trivia game, players will be presented with a single Harry Potter inspired trivia question during each round.
 
-* If the player selects the correct answer, show a screen congratulating them for choosing the right option. After a few seconds, display the next question -- do this without user input.
+Each question is multiple choice and the player has only 20 seconds to answer each question before the particular round ends.
 
-* The scenario is similar for wrong answers and time-outs.
+Running out of time or selecting an answer will end the round, immediately displaying the correct answer and telling them if they either were correct, incorrect, or out of time.
 
-  * If the player runs out of time, tell the player that time's up and display the correct answer. Wait a few seconds, then show the next question.
-  * If the player chooses the wrong answer, tell the player they selected the wrong option and then display the correct answer. Wait a few seconds, then show the next question.
+* There is only a 4 second delay after the end of each question round  and the beginning of the next question round. 
 
-* On the final screen, show the number of correct answers, incorrect answers, and an option to restart the game (without reloading the page).
+* After all rounds are completed, players will see a final screen showing the total number of correct answers, incorrect answers, and incomplete or skipped answers and option to restart the game (without reloading the page).
 
 - - -

@@ -186,11 +186,14 @@ function endReviewTimer() {
         t.append("<p>Correct: " + correct + "</p>");
         t.append("<p>Incorrect: " + incorrect + "</p>");
         t.append("<p>Unanswered: " + incomplete + "</p>");
+        // we also want a button to restart the game....
+        var newGame = $("<button>").attr("id", "newGame").addClass("score").text("Play Again");
+        t.append(newGame);
         
         // now insert this new div back into the DOM
         $(".toBeCleared").html(t);
         // alert("Correct: " +correct + " Incorrect: " +incorrect + " Incomplete: " +incomplete)
-
+    
 
     } else {
     newRound();
@@ -278,6 +281,44 @@ function roundScore(buttonId) {
 
 };
 
+function reBuildLayout () {
+        // now to re-add first ROW of card layout
+        var n = $("<div>").addClass("row");
+        //we need the next bit INSIDE the column
+        var q = $("<p>").addClass("question");
+        var s = $("<span>").attr("id", "question");
+        q.html(s);
+        n.append($("<div>").addClass("col-lg-12").html(q));
+
+        var row2 = $("<div>").addClass("row");
+        // now add button section back to card layout
+        var c1 = $("<div>").addClass("col-lg-6");
+        // we need to add each button back inside the column div
+        for (i = 0; i < 4; i++) {
+            var b = $("<button>").addClass("answerButtons").attr("id", i);
+            c1.append(b);
+            // don't forget the breaks....
+            if (i < 3) {
+                c1.append("<br>")
+            };
+        }
+
+        var c2 = $("<div>").addClass("col-lg-6");
+        var t = $("<h2>");
+        var s2 = $("<span>").attr("id", "timer").text("00:20");
+            t.html(s2);
+        c2.append(t);
+        var imgDiv = $("<div>").addClass("myImg");
+        imgDiv.html($("<img>").attr({id: "myImg", src: "https://media.giphy.com/media/1CtJUjxxgA5Pi/giphy.gif"}));
+        c2.append(imgDiv);
+
+        // combine both rows together
+        c1.append(c2);
+        row2.html(c1);
+        n.append(row2);
+
+        $("#toBeCleared").html(n);
+};
 
 // ***** Main code
 
@@ -298,6 +339,11 @@ function roundScore(buttonId) {
                 reviewTimer();
             }
             
+        });
+
+        $("#newGame").click(function(){
+            reBuildLayout();
+            newGame();
         });
         
         // start roundTimer
