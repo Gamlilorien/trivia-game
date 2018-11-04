@@ -14,9 +14,3 @@
 * On the final screen, show the number of correct answers, incorrect answers, and an option to restart the game (without reloading the page).
 
 - - -
-
-### Minimum Requirements
-
-Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed. Adding a README.md as well as adding this homework to your portfolio are required as well and more information can be found below.
-
-- - -
