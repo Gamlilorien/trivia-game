@@ -3,7 +3,7 @@
 ![trivia-game](assets/images/hp-banner.png)
 
 ### Concept
-* In this trivia game, players will be presented with a single Harry Potter inspired trivia question during each round.
+In this trivia game, players will be presented with a single Harry Potter inspired trivia question during each round.
 
 Each question is multiple choice and the player has only 20 seconds to answer each question before the particular round ends.
 
