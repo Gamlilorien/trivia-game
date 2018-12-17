@@ -1,4 +1,4 @@
-### trivia-game
+# Harry Potter Trivia Game
 
 ![trivia-game](assets/images/hp-banner.png)
 
