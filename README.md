@@ -1,7 +1,8 @@
 # Harry Potter Trivia Game
 
 ![trivia-game](assets/images/hp-banner.png)
-
+#
+[View Demo](https://gamlilorien.github.io/trivia-game/).
 ### Concept
 In this trivia game, players will be presented with a single Harry Potter inspired trivia question during each round.
 
